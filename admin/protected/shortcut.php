@@ -156,6 +156,10 @@ function getFlash($key){
     return Yii::app()->user->getFlash($key);
 }
 
+function hasFlash($key){
+    return Yii::app()->user->hasFlash($key);
+}
+
 function encode($text){
 	return CHtml::encode($text);
 }

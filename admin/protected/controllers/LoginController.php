@@ -6,19 +6,36 @@ class LoginController extends Controller
 
 	public function actionIndex()
 	{
-		$modelLogin = new Login();    
-        
+        $modelLogin = new Login();  
+        $modelLogin->setScenario('login');
         if(isset($_POST['Login']))
         {
-            $modelLogin->attributes=$_POST['LoginForm'];
-            // validate user input and redirect to the previous page if valid
+            $modelLogin->attributes=$_POST['Login'];
             if($modelLogin->validate() && $modelLogin->login()){
-                Log::info('Login');
                 $this->redirect(url('site/index'));
             }
         }
-        $this->render('index',array(
+		$this->render('index',array(
             'modelLogin'=>$modelLogin,
         ));
 	}
+    
+    public function actionLogout(){
+        Yii::app()->user->logout();
+        $this->redirect(Yii::app()->homeUrl);
+    }
+    
+    public function actionForgetpassword(){
+        $modelLogin = new Login();
+        $modelLogin->setScenario('forgetpassword');
+        if(isset($_POST['Login']))
+        {
+            $modelLogin->attributes=$_POST['Login'];
+            if($modelLogin->validate()){
+            }
+        }
+        $this->render('forgetpassword',array(
+            'modelLogin'=>$modelLogin,
+        ));
+    }
 }

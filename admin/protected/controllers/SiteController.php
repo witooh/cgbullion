@@ -2,7 +2,7 @@
 
 class SiteController extends Controller
 {
-    public $layout='//layouts/main';
+	public $layout='//layouts/main';
     public function filters()
     {
         return array(
@@ -18,7 +18,7 @@ class SiteController extends Controller
                 'users' => array('*'),
             ),
             array('allow',
-                'actions' => array('index'),
+                'actions' => array('index','form','interface','typo'),
                 'users' =>array('@'),
             ),
             array('deny',
@@ -29,6 +29,7 @@ class SiteController extends Controller
 
 	public function actionIndex()
 	{
+        setFlash('success','SUCCESS: Success message! hoooraaay!!!!');
 		$this->render('index',array());
 	}
     

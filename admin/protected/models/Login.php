@@ -1,82 +1,66 @@
 <?php
 
-/**
- * LoginForm class.
- * LoginForm is the data structure for keeping
- * user login form data. It is used by the 'login' action of 'SiteController'.
- */
-class Login extends CModel
+class Login extends CFormModel
 {
-	public $username;
-	public $password;
-	public $rememberMe;
+    public $username;
+    public $password;
+    public $rememberMe;
+    public $email;
 
-	private $_identity;
+    private $_identity;
 
-	/**
-	 * Declares the validation rules.
-	 * The rules state that username and password are required,
-	 * and password needs to be authenticated.
-	 */
-	public function rules()
-	{
-		return array(
-			// username and password are required
-			array('username, password', 'required'),
-			// rememberMe needs to be a boolean
-			array('rememberMe', 'boolean'),
-			// password needs to be authenticated
-			array('password', 'authenticate'),
-			// protect sql injection
-			//array('username, password', 'checkInjection'),
-		);
-	}
-	
-	/**
-	 * Declares attribute labels.
-	 */
-	public function attributeLabels()
-	{
-		return array(
-			'rememberMe'=>'Remember me next time',
-		);
-	}
-	public function checkInjection(){
-		
-	}
-	/**
-	 * Authenticates the password.
-	 * This is the 'authenticate' validator as declared in rules().
-	 */
-	public function authenticate($attribute,$params)
-	{
-		if(!$this->hasErrors())
-		{
-			$this->_identity=new UserIdentity($this->username,$this->password);
-			if(!$this->_identity->authenticate())
-				$this->addError('password','Incorrect username or password.');
-		}
-	}
+    public function rules()
+    {
+        return array(
+            // username and password are required
+            array('username, password', 'required' ,'on'=>'login'),
+            // rememberMe needs to be a boolean
+            array('rememberMe', 'boolean','on'=>'login'),
+            // password needs to be authenticated
+            array('password', 'authenticate','on'=>'login'),
+            array('email','required','on'=>'forgetpassword'),
+            array('email','email','on'=>'forgetpassword'),
+            // protect sql injection
+            //array('username, password', 'checkInjection'),
+        );
+    }
+    
+    public function attributeLabels()
+    {
+        return array(
+            'rememberMe'=>'Remember',
+        );
+    }
 
-	/**
-	 * Logs in the user using the given username and password in the model.
-	 * @return boolean whether login is successful
-	 */
-	public function login()
-	{
-		if($this->_identity===null)
-		{
-			$this->_identity=new UserIdentity($this->username,$this->password);
-			$this->_identity->authenticate();
-		}
-		if($this->_identity->errorCode===UserIdentity::ERROR_NONE)
-		{
-			//$duration=$this->rememberMe ? 3600*24*30 : 0; // 30 days
-			Yii::app()->user->login($this->_identity);
-			
-			return true;
-		}
-		else
-			return false;
-	}
+    public function authenticate($attribute,$params)
+    {
+        if(!$this->hasErrors())
+        {
+            $this->_identity=new UserIdentity($this->username,$this->password);
+            if(!$this->_identity->authenticate())
+                $this->addError('password','Incorrect username or password.');
+        }
+    }
+
+    /**
+     * Logs in the user using the given username and password in the model.
+     * @return boolean whether login is successful
+     */
+    public function login()
+    {
+        if($this->_identity===null)
+        {
+            $this->_identity=new UserIdentity($this->username,$this->password);
+            $this->_identity->authenticate();
+        }
+        if($this->_identity->errorCode===UserIdentity::ERROR_NONE)
+        {
+            $duration=$this->rememberMe ? 3600*24*30 : 0; // 30 days
+            Yii::app()->user->login($this->_identity);
+            
+            return true;
+        }
+        else
+            return false;
+    }
 }

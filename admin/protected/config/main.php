@@ -7,7 +7,7 @@
 // CWebApplication properties can be configured here.
 return array(
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
-	'name'=>'VAA',
+	'name'=>'Backend',
 	'language' => 'en',
     'charset'=>'utf-8',
 
@@ -89,12 +89,12 @@ return array(
             'class' => 'WebUser',
 			// enable cookie-based authentication
 			'allowAutoLogin' => true,
-            'loginUrl' => '/admin/login',
+            'loginUrl' => '/login',
 		),
         'parallelize'=>array(
             'class'=>'ext.Parallelizeurl.ParallelizeUrl',
             'hosts'=>array(
-                'http://www.mocial.in.th',
+                //'http://www.mocial.in.th',
             )
         ),
         /*

@@ -1,3 +1,7 @@
+/* ===== Login ===== */
+.loginPanel {height: auto !important;}
+.loginWrapper {margin: -160px 0 0 -160px !important;}
+
 /* ===== Pager ===== */
 .pager {background: url("../images/leftNavBg.png") repeat-x scroll 0 0 #EFEFEF;border-right: medium none;border-top: 1px solid #D5D5D5;font-weight: normal;margin-top: -1px;padding: 15px 10px;-moz-border-radius: 2px; -webkit-border-radius: 2px; -khtml-border-radius: 2px; border-radius: 2px;display: block;}
 .pager .pages{text-align: right;}
@@ -12,3 +16,6 @@
 .tableStatic thead th a:hover{text-decoration: underline;}
 .tableStatic thead th:first-child { border-left: none; }
 
+/* ===== Form ===== */
+div.errorMessage { color: #A73939; font-size: 11px; display: block; width: 100%; white-space: nowrap; float: none; margin: 8px 0 -8px 0; padding: 0!important; }
+input[type="submit"], input[type="reset"], input[type="button"], button, .button, x:-moz-any-link, x:only-child{ padding: 5px 14px !important;}

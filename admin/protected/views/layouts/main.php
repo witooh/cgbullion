@@ -88,23 +88,14 @@
                             <li><a href="#" title="" class="sTrash">trash</a></li>
                         </ul>
                     </li>
-                    <li><a href="#" title=""><img src="<?php echo baseurl('images/icons/topnav/settings.png') ?>" alt="" /><span>Settings</span></a></li>
-                    <li><a href="login.html" title=""><img src="<?php echo baseurl('images/icons/topnav/logout.png') ?>" alt="" /><span>Logout</span></a></li>
+                    <li><a href="#" title=""><img src="<?php echo baseurl('images/icons/topnav/settings.png') ?>" alt="" /><span>Settings</span></a>
+                    </li>
+                    <li><a href="<?php echo url('login/logout') ?>" title=""><img src="<?php echo baseurl('images/icons/topnav/logout.png') ?>" alt="" /><span>Logout</span></a></li>
                 </ul>
             </div>
             <div class="fix"></div>
         </div>
     </div>
-</div>
-
-<div class="switcher">
-    <ul>
-        <li><a href="#" title="" class="pat1"><img src="<?php echo baseurl('images/switcher/1.png') ?>" alt="" /></a></li>
-        <li><a href="#" title="" class="pat2"><img src="<?php echo baseurl('images/switcher/2.png') ?>" alt="" /></a></li>
-        <li><a href="#" title="" class="pat3"><img src="<?php echo baseurl('images/switcher/3.png') ?>" alt="" /></a></li>
-        <li><a href="#" title="" class="pat4"><img src="<?php echo baseurl('images/switcher/4.png') ?>" alt="" /></a></li>
-        <li class="last"><a href="#" title="" class="pat5"><img src="<?php echo baseurl('images/switcher/5.png') ?>" alt="" /></a></li>
-    </ul>
 </div>
 
 <!-- Header -->
@@ -212,6 +203,23 @@
     
     <!-- Content -->
     <div class="content">
+        <?php if(hasFlash('success')):?>
+            <div class="nNote nSuccess hideit">
+                <p><strong><?php echo t('SUCCESS:'); ?> </strong><?php echo t(getFlash('success')) ?></p>
+            </div> 
+        <?php elseif(hasFlash('error')): ?>
+            <div class="nNote nFailure hideit">
+                <p><strong><?php echo t('FAILURE:'); ?> </strong><?php echo t(getFlash('error')) ?></p>
+            </div>
+        <?php elseif(hasFlash('warning')): ?>
+            <div class="nNote nWarning hideit">
+                <p><strong><?php echo t('WARNING:'); ?> </strong><?php echo t(getFlash('warning')) ?></p>
+            </div>
+        <?php elseif(hasFlash('info')): ?>
+            <div class="nNote nInformation hideit">
+                <p><strong><?php echo t('INFORMATION:'); ?> </strong><?php echo t(getFlash('info')) ?></p>
+            </div>
+        <?php endif; ?>
         <?php echo $content ?>
     </div>
     <div class="fix"></div>
