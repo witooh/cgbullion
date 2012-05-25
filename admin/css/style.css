@@ -1,0 +1,14 @@
+/* ===== Pager ===== */
+.pager {background: url("../images/leftNavBg.png") repeat-x scroll 0 0 #EFEFEF;border-right: medium none;border-top: 1px solid #D5D5D5;font-weight: normal;margin-top: -1px;padding: 15px 10px;-moz-border-radius: 2px; -webkit-border-radius: 2px; -khtml-border-radius: 2px; border-radius: 2px;display: block;}
+.pager .pages{text-align: right;}
+.pages li.selected a { background-position: 0 -26px; color: #fff; border-color: #687282; }
+.pages li.selected:hover a { background: #687282; }
+.pages li.previous {margin-right: 15px;}
+
+/* ===== Table ===== */
+.tableStatic {margin-bottom: -1px;width:100%;border-bottom: 1px solid #d5d5d5;-moz-border-radius: 2px; -webkit-border-radius: 2px; -khtml-border-radius: 2px; border-radius: 2px;}
+.tableStatic thead th { padding: 3px 0 2px 0; text-align: center; border-left: 1px solid #D5D5D5; background: #efefef url(../images/leftNavBg.png) repeat-x; border-bottom: 1px solid #D5D5D5; font-size: 11px; color: #878787; }
+.tableStatic thead th a { text-align: center; font-size: 11px; color: #878787; }
+.tableStatic thead th a:hover{text-decoration: underline;}
+.tableStatic thead th:first-child { border-left: none; }
+
