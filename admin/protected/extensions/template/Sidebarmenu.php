@@ -197,8 +197,10 @@ class Sidebarmenu extends CWidget
     {
         $numberTag = isset($item['numbers']) ? '<span class="numberLeft">'.$item['numbers'].'</span>' : '';
         $class = array();
-        if($isActive){
+        if($isActive && !$isChild){
             $class[]=$this->activeCssClass;
+        }else if($isActive && $isChild){
+            
         }
         if($hasCild){
             $class[]='exp';

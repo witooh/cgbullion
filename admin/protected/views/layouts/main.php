@@ -75,20 +75,16 @@
 <div id="topNav">
     <div class="fixed">
         <div class="wrapper">
-            <div class="welcome"><a href="#" title=""><img src="<?php echo baseurl('images/userPic.png') ?>" alt="" /></a><span>Howdy, Eugene!</span></div>
+            <div class="welcome"><a href="#" title=""><img src="<?php echo baseurl('images/userPic.png') ?>" alt="" /></a><span><?php echo userName(); ?></span></div>
             <div class="userNav">
                 <ul>
                     <li><a href="#" title=""><img src="<?php echo baseurl('images/icons/topnav/profile.png') ?>" alt="" /><span>Profile</span></a></li>
                     <li><a href="#" title=""><img src="<?php echo baseurl('images/icons/topnav/tasks.png') ?>" alt="" /><span>Tasks</span></a></li>
-                    <li class="dd"><a title=""><img src="<?php echo baseurl('images/icons/topnav/messages.png') ?>" alt="" /><span>Messages</span><span class="numberTop">8</span></a>
+                    <li class="dd"><a title=""><img src="<?php echo baseurl('images/icons/topnav/settings.png') ?>" alt="" /><span>Settings</span></a>
                         <ul class="menu_body">
-                            <li><a href="#" title="" class="sAdd">new message</a></li>
-                            <li><a href="#" title="" class="sInbox">inbox</a></li>
-                            <li><a href="#" title="" class="sOutbox">outbox</a></li>
-                            <li><a href="#" title="" class="sTrash">trash</a></li>
+                            <li><a href="#" title="" class="sTasks">Change Password</a></li>
+                            <li><a href="#" title="" class="sTasks">Emails</a></li>
                         </ul>
-                    </li>
-                    <li><a href="#" title=""><img src="<?php echo baseurl('images/icons/topnav/settings.png') ?>" alt="" /><span>Settings</span></a>
                     </li>
                     <li><a href="<?php echo url('login/logout') ?>" title=""><img src="<?php echo baseurl('images/icons/topnav/logout.png') ?>" alt="" /><span>Logout</span></a></li>
                 </ul>
@@ -100,15 +96,11 @@
 
 <!-- Header -->
 <div id="header" class="wrapper">
-    <div class="logo"><a href="/" title=""><img src="<?php echo baseurl('images/loginLogo.png') ?>" alt="" /></a></div>
-    <div class="middleNav">
-        <ul>
-            <li class="iMes"><a href="#" title=""><span>Support tickets</span></a><span class="numberMiddle">9</span></li>
-            <li class="iStat"><a href="#" title=""><span>Statistics</span></a></li>
-            <li class="iUser"><a href="#" title=""><span>User list</span></a></li>
-            <li class="iOrders"><a href="#" title=""><span>Billing panel</span></a></li>
-        </ul>
-    </div>
+    <!-- <div class="logo"><a href="/" title=""><img src="<?php echo baseurl('images/loginLogo.png') ?>" alt="" /></a></div> -->
+    <?php $this->widget('ext.template.Pagemenu',array(
+        'items'=>$this->pageMenu,
+    ));
+    ?>
     <div class="fix"></div>
 </div>
 
@@ -127,72 +119,17 @@
                         'itemOptions'=>array('class'=>'dash'),
                     ),
                     array(
-                        'label'=>'Graphs and charts',
-                        'url'=>array('site/graph'),
-                        'itemOptions'=>array('class'=>'graphs'),
+                        'label'=>'Gold Index',
+                        'url'=>array('gold/index'),
+                        'itemOptions'=>array('class'=>'pricetags'),
                     ),
                     array(
-                        'label'=>'Form elements',
-                        'url'=>array('site/form'),
-                        'itemOptions'=>array('class'=>'forms'),
-                    ),
-                    array(
-                        'label'=>'Interface elements',
-                        'url'=>array('site/interface'),
-                        'itemOptions'=>array('class'=>'login'),
-                    ),
-                    array(
-                        'label'=>'Typography',
-                        'url'=>array('site/typo'),
-                        'itemOptions'=>array('class'=>'typo'),
-                    ),
-                    array(
-                        'label'=>'Tables',
-                        'url'=>array('site/table'),
-                        'itemOptions'=>array('class'=>'tables'),
-                    ),
-                    array(
-                        'label'=>'Calendar',
-                        'url'=>array('site/calendar'),
-                        'itemOptions'=>array('class'=>'cal'),
-                    ),
-                    array(
-                        'label'=>'Gallery',
-                        'url'=>array('site/gallery'),
-                        'itemOptions'=>array('class'=>'gallery'),
-                    ),
-                    array(
-                        'label'=>'Widgets',
-                        'url'=>array('site/widget'),
-                        'itemOptions'=>array('class'=>'widgets'),
-                    ),
-                    array(
-                        'label'=>'File manager',
-                        'url'=>array('site/file'),
-                        'itemOptions'=>array('class'=>'files'),
-                    ),
-                    array(
-                        'label'=>'Error pages',
-                        'itemOptions'=>array('class'=>'errors'),
+                        'label'=>'Currency Index',
+                        'itemOptions'=>array('class'=>'money'),
                         'items'=>array(
-                            array('label'=>'403 page', 'url'=>array('site/error')),
-                            array('label'=>'404 page', 'url'=>array('site/error')),
-                            array('label'=>'405 page', 'url'=>array('site/error')),
-                            array('label'=>'500 page', 'url'=>array('site/error')),
-                            array('label'=>'503 page', 'url'=>array('site/error')),
-                            array('label'=>'Website is offline', 'url'=>array('site/error')),
+                            array('label'=>'Exchange rate to USD', 'url'=>array('currency/exchange')),
+                            array('label'=>'Inverse rate to USD', 'url'=>array('currency/inverse')),
                         ),
-                        'numbers'=>'6'
-                    ),
-                    array(
-                        'label'=>'Buttons and icons',
-                        'url'=>array('site/icon'),
-                        'itemOptions'=>array('class'=>'pic'),
-                    ),
-                    array(
-                        'label'=>'Contact list',
-                        'url'=>array('site/contact'),
-                        'itemOptions'=>array('class'=>'contacts'),
                     ),
                 ),
             ));
@@ -203,6 +140,7 @@
     
     <!-- Content -->
     <div class="content">
+        <div class="title"><h5><?php echo $this->title ?></h5></div>
         <?php if(hasFlash('success')):?>
             <div class="nNote nSuccess hideit">
                 <p><strong><?php echo t('SUCCESS:'); ?> </strong><?php echo t(getFlash('success')) ?></p>
@@ -228,7 +166,7 @@
 <!-- Footer -->
 <div id="footer">
     <div class="wrapper">
-        <span>&copy; Copyright 2011. All rights reserved. It's Brain admin theme by <a href="#" title="">Eugene Kopyov</a></span>
+        <span>&copy; Copyright 2012. All rights reserved.</span>
     </div>
 </div>
 

@@ -16,6 +16,7 @@ return array(
 
 	// autoloading model and component classes
 	'import'=>array(
+        'application.master.*',
 		'application.models.*',
 		'application.components.*',
 		'application.extensions.*',
@@ -89,7 +90,7 @@ return array(
             'class' => 'WebUser',
 			// enable cookie-based authentication
 			'allowAutoLogin' => true,
-            'loginUrl' => '/login',
+            'loginUrl' => '/admin/login',
 		),
         'parallelize'=>array(
             'class'=>'ext.Parallelizeurl.ParallelizeUrl',
@@ -139,7 +140,7 @@ return array(
 		'db' => array(
             'connectionString' =>
             	'mysql:host=localhost;
-            	dbname=vaa',
+            	dbname=admin_cg',
             'emulatePrepare' => true,
             'username' => 'root',
             'password' => '',

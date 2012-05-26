@@ -75,10 +75,10 @@
 <div id="topNav">
     <div class="fixed">
         <div class="wrapper">
-            <div class="backTo"><a href="/" title=""><img src="images/icons/topnav/mainWebsite.png" alt="" /><span>Main website</span></a></div>
+            <div class="backTo"><a href="/" title=""><img src="<?php echo baseurl('images/icons/topnav/mainWebsite.png') ?>" alt="" /><span>Main website</span></a></div>
             <div class="userNav">
                 <ul>
-                    <li><a href="<?php echo url('login/forgetpassword') ?>" title=""><img src="images/icons/topnav/contactAdmin.png" alt="" /><span>Forget Password?</span></a></li>
+                    <li><a href="<?php echo url('login/forgetpassword') ?>" title=""><img src="<?php echo baseurl('images/icons/topnav/contactAdmin.png') ?>" alt="" /><span>Forget Password?</span></a></li>
                 </ul>
             </div>
             <div class="fix"></div>
@@ -93,7 +93,7 @@
 <!-- Footer -->
 <div id="footer">
     <div class="wrapper">
-        <span>&copy; Copyright 2011. All rights reserved. It's Brain admin theme by <a href="#" title="">Eugene Kopyov</a></span>
+        <span>&copy; Copyright 2012. All rights reserved.</span>
     </div>
 </div>
 

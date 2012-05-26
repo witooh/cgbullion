@@ -2,7 +2,7 @@
 
 class SiteController extends Controller
 {
-	public $layout='//layouts/main';
+    public $layout='//layouts/main';
     public function filters()
     {
         return array(
@@ -27,11 +27,11 @@ class SiteController extends Controller
         );
     }
 
-	public function actionIndex()
-	{
+    public function actionIndex()
+    {
         setFlash('success','SUCCESS: Success message! hoooraaay!!!!');
-		$this->render('index',array());
-	}
+        $this->render('index',array());
+    }
     
     public function actionGraph(){
         $this->render('graph');
@@ -102,20 +102,20 @@ class SiteController extends Controller
         ));
     }
 
-	public function actionError()
-	{
-		if(user()->isGuest)
-			$this->layout = '//layouts/login';
-		else
-			$this->layout = '//layouts/main';
-	    if($error=Yii::app()->errorHandler->error)
-	    {
-	    	if(Yii::app()->request->isAjaxRequest)
-	    		echo $error['message'];
-	    	else
-	        	$this->render('error', $error);
-	    }
-	}
+    public function actionError()
+    {
+        if(user()->isGuest)
+            $this->layout = '//layouts/login';
+        else
+            $this->layout = '//layouts/main';
+        if($error=Yii::app()->errorHandler->error)
+        {
+            if(Yii::app()->request->isAjaxRequest)
+                echo $error['message'];
+            else
+                $this->render('error', $error);
+        }
+    }
     
     public function itemListData($id){
         return array(

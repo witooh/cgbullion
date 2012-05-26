@@ -230,7 +230,7 @@ input[type=submit], input[type=reset], input[type=button], button, .button { fon
 .sInbox { background: url(../images/icons/topnav/subInbox.png) no-repeat 14px 12px; }
 .sOutbox { background: url(../images/icons/topnav/subOutbox.png) no-repeat 14px 11px; }
 .sTrash { background: url(../images/icons/topnav/subTrash.png) no-repeat 14px 12px; }
-
+.sTasks { background: url(../images/icons/topnav/tasks.png) no-repeat 14px 12px; }
 
 
 
@@ -250,6 +250,12 @@ input[type=submit], input[type=reset], input[type=button], button, .button { fon
 .middleNav ul li.iStat a span { background: url(../images/icons/middlenav/graph.png) no-repeat 50% 10px; }
 .middleNav ul li.iUser a span { background: url(../images/icons/middlenav/users.png) no-repeat 50% 10px; }
 .middleNav ul li.iOrders a span { background: url(../images/icons/middlenav/money.png) no-repeat 50% 10px; }
+.middleNav ul li.iAdd a span { background: url(../images/icons/middlenav/add.png) no-repeat 50% 10px; }
+.middleNav ul li.iBack a span { background: url(../images/icons/middlenav/arrowLeft.png) no-repeat 50% 10px; }
+.middleNav ul li.iClose a span { background: url(../images/icons/middlenav/close.png) no-repeat 50% 10px; }
+.middleNav ul li.iSetting a span { background: url(../images/icons/middlenav/cog.png) no-repeat 50% 10px; }
+.middleNav ul li.iCheck a span { background: url(../images/icons/middlenav/check.png) no-repeat 50% 10px; }
+.middleNav ul li.iDenied a span { background: url(../images/icons/middlenav/denied.png) no-repeat 50% 10px; }
 
 .middleNav ul li a:hover { background: #f6f6f6; }
 .middleNav ul li a:active { background: #f1f1f1; }
@@ -282,6 +288,8 @@ input[type=submit], input[type=reset], input[type=button], button, .button { fon
 .leftNav ul li.pic a span { background-image: url(../images/icons/dark/blocks.png); }
 .leftNav ul li.widgets a span { background-image: url(../images/icons/dark/full.png); }
 .leftNav ul li.contacts a span { background-image: url(../images/icons/dark/users.png); }
+.leftNav ul li.pricetags a span { background-image: url(../images/icons/dark/priceTags.png); }
+.leftNav ul li.money a span { background-image: url(../images/icons/dark/money.png); }
 
 .leftNav ul li a span { background-position: 10px; background-repeat: no-repeat; }
 

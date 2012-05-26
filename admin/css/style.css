@@ -19,3 +19,5 @@
 /* ===== Form ===== */
 div.errorMessage { color: #A73939; font-size: 11px; display: block; width: 100%; white-space: nowrap; float: none; margin: 8px 0 -8px 0; padding: 0!important; }
 input[type="submit"], input[type="reset"], input[type="button"], button, .button, x:-moz-any-link, x:only-child{ padding: 5px 14px !important;}
+
+.nNote{margin-bottom: 0px !important;}
