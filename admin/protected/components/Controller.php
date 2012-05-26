@@ -22,4 +22,10 @@ class Controller extends CController
 	public $breadcrumbs=array();
     public $title = '';
     public $pageMenu = array();	
+    
+    protected function beforeRender($view)
+    {
+        Yii::app()->user->returnUrl = Yii::app()->request->requestUri;
+        return true;
+    } 
 }

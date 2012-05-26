@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>It's Brain - premium admin HTML template by Eugene Kopyov</title>
+<title><?php echo $this->title ?></title>
 
 <?php
     
@@ -117,6 +117,16 @@
                         'label'=>'Dashboard',
                         'url'=>array('site/index'),
                         'itemOptions'=>array('class'=>'dash'),
+                    ),
+                    array(
+                        'label'=>'News',
+                        'url'=>array('news/index'),
+                        'itemOptions'=>array('class'=>'typo'),
+                    ),
+                    array(
+                        'label'=>'Report',
+                        'url'=>array('report/index'),
+                        'itemOptions'=>array('class'=>'typo'),
                     ),
                     array(
                         'label'=>'Gold Index',

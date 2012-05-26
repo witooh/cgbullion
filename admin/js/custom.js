@@ -593,7 +593,7 @@ contextmenu : {
 
             underline     : { visible : true },
 
-            strikeThrough : { visible : false },
+            strikeThrough : { visible : true },
 
             
 
@@ -629,7 +629,7 @@ contextmenu : {
 
             insertUnorderedList  : { visible : true },
 
-            insertHorizontalRule : { visible : false },
+            insertHorizontalRule : { visible : true },
 
 
 
@@ -739,9 +739,9 @@ contextmenu : {
 
             html  : { visible: true },
 
-            increaseFontSize : { visible : false },
+            increaseFontSize : { visible : true },
 
-            decreaseFontSize : { visible : false },
+            decreaseFontSize : { visible : true },
 
             },
 
@@ -1596,9 +1596,17 @@ contextmenu : {
 
     });
 
+    $(document).on('click','a.submitform',function(){
+        var selector = $(this).attr('data-form');
+        $('#'+selector).submit();
+        return false;
+    });
     
-
-    
+    $(document).on('click','input.link',function(){
+        var url = $(this).attr('data-url');
+        window.location = url;
+        return false;
+    });
 
 
 

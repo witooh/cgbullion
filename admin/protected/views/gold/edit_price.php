@@ -1,5 +1,5 @@
 <?php
-    $this->title = 'Gold Index: Add Price';
+    $this->title = 'Gold Index: Edit Price';
 ?>
 
 <?php $form=$this->beginWidget('CActiveForm', array(
@@ -15,7 +15,7 @@
 )); ?>
     <fieldset>
         <div class="widget aligncenter">    
-            <div class="head"><h5 class="iList">Add Price</h5></div>
+            <div class="head"><h5 class="iList">Edit Price</h5></div>
             <div class="body" style="text-align: left;">
                 <div class="rowElem noborder">
                     <label>Buy Price (USD):</label>
@@ -40,7 +40,7 @@
                                 'model'=>$modelGold,
                                 'attribute'=>'date',
                                 'htmlOptions'=>array(
-                                    'readonly'=>'readonly',
+                                    'disabled'=>'disabled',
                                 ),
                                 'options'=>array(
                                     'dateFormat'=>'yy-mm-dd',

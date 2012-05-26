@@ -1,12 +1,12 @@
 <?php
-    $this->title = 'Gold Index';
+    $this->title = 'News';
 ?>
 
 <div>
     <div class="middleNav" style="float: none;">
         <ul>
-            <li class="iAdd"><a href="<?php echo url('gold/addprice') ?>"><span>Add Price</span></a></li>
-            <li class="iClose"><a href="#" class="submitform" data-form="form-delete"><span>Delete Price(s)</span></a></li>
+            <li class="iAdd"><a href="<?php echo url('news/add') ?>"><span>Add News</span></a></li>
+            <li class="iClose"><a href="#" class="submitform" data-form="form-delete"><span>Delete News</span></a></li>
         </ul>
     </div>
 </div>
@@ -28,12 +28,12 @@
             <div class="head"><h5 class="iList">Search</h5></div>
             <div class="body" style="text-align: left;">
                 <div class="rowElem noborder">
-                    <label>Date:</label>
+                    <label>Created Date:</label>
                     <div class="formRight">
                         <?php
                             $this->widget('zii.widgets.jui.CJuiDatePicker', array(
                                 'name'=>'fromDate',
-                                'model'=>$modelGold,
+                                'model'=>$modelNews,
                                 'attribute'=>'fromDate',
                                 'htmlOptions'=>array(
                                     'style'=>'width:200px;',
@@ -47,7 +47,7 @@
                         <?php
                             $this->widget('zii.widgets.jui.CJuiDatePicker', array(
                                 'name'=>'toDate',
-                                'model'=>$modelGold,
+                                'model'=>$modelNews,
                                 'attribute'=>'toDate',
                                 'htmlOptions'=>array(
                                     'style'=>'width:200px;',
@@ -58,7 +58,6 @@
                             ));
                         ?>
                         <div class="fix"></div>
-                        <?php echo $form->error($modelGold,'date'); ?>
                     </div>
                     <div class="fix"></div>
                 </div>
@@ -74,7 +73,7 @@
 <?php $this->endWidget(); ?>
 <?php $form=$this->beginWidget('CActiveForm', array(
     'id'=>'form-delete',
-    'action'=>url('gold/deleteall'),
+    'action'=>url('news/deleteall'),
     'htmlOptions'=>array('class'=> 'mainForm'),
 )); ?>
 <div class="widget first">
@@ -82,7 +81,7 @@
     <div class="">
         <?php
             $this->widget('zii.widgets.grid.CGridView', array(
-                'dataProvider'=>$modelGold->search(),
+                'dataProvider'=>$modelNews->search(),
                 'cssFile'=>false,
                 'summaryText'=>false,
                 'itemsCssClass'=>'tableStatic',
@@ -99,19 +98,23 @@
                         'headerHtmlOptions'=>array('style'=>'width:15px;padding:0 10px;'),
                     ),
                     array(
-                        'name'=>'date',
-                        'header'=>t('Date'),
+                        'name'=>'title',
+                        'header'=>t('Title (English)'),
                         'type'=>'html',
-                        'value'=>"CHtml::link(".'$data->date'.",url('gold/edit',array('id'=>".'$data->goldindexid'.")))",
+                        'value'=>"CHtml::link(".'$data->title_en'.",url('news/edit',array('id'=>".'$data->newsid'.")))",
                     ),
                     array(
-                        'name'=>'buy_price',
-                        'header'=>t('Buy Price'),
+                        'name'=>'create_datetime',
+                        'header'=>t('Created Date'),
+                        'headerHtmlOptions'=>array('style'=>'width:150px;'),
+                        'htmlOptions'=>array('style'=>'text-align:center;'),
                     ),
                     array(
-                        'name'=>'sell_price',
-                        'header'=>t('Sell Price'),
-                    ),
+                        'name'=>'modified_datetime',
+                        'header'=>t('Modified Date'),
+                        'headerHtmlOptions'=>array('style'=>'width:150px;'),
+                        'htmlOptions'=>array('style'=>'text-align:center;'),
+                    ),  
                 ),
                 'pager'=>array(
                     'class'=>'CLinkPager',
