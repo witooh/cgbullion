@@ -57,20 +57,27 @@ class NewsController extends Controller
     public function actionAdd()
     {
         $modelNews = new News;
-        //$modelNews->setScenario('add');
+        $modelNews->setScenario('add');
         if(isset($_POST['News'])){
             //$this->performAjaxValidation($modelNews);
-            print_r($_POST['News']);
             $modelNews->attributes=$_POST['News'];
             $modelNews->cover_image=CUploadedFile::getInstance($modelNews,'cover_image');
-            if($modelNews->save()){
-                $modelNews->cover_image->saveAs(basepath().'/../article/cover/'."{$modelNews->cover_image->name}.{$modelNews->cover_image->extensionName}");                
-                setFlash('success','News is added');
+			if($modelNews->validate()){
+				$modelNews->cover_image = baseurl('article/cover/'.md5(date('Y-m-d H:i:s:u')).'.'.$modelNews->cover_image->extensionName);
+				$modelNews->save(false);
+				$file=CUploadedFile::getInstanceByName('News[cover_image]');
+                $isSave = $file->saveAs(basepath().'/../article/cover/'.md5(date('Y-m-d H:i:s:u')).'.'.$file->extensionName);                
+                if($isSave){
+                	setFlash('success','News is added');
+                }else{
+                	$modelNews->delete();
+                	setFlash('error','Cannot add News');
+                }
                 $this->redirect(url('news/index'));
             }
         }
         if(empty($modelNews->create_datetime))
-            $modelNews->create_datetime = date('Y-m-d H:m:i');
+            $modelNews->create_datetime = date('Y-m-d H:i:s');
         $this->render('add',array(
             'modelNews'=>$modelNews,
         ));

@@ -41,7 +41,8 @@ class News extends MNews
 			array('title_en, title_th, title_in', 'length', 'max'=>200),
 			array('content_en, content_th, content_in, cover_image, modified_datetime', 'safe'),
             
-            array('cover_image', 'file', 'types'=>'jpg, gif, png'),
+            array('cover_image', 'file', 'types'=>'jpg, gif, png', 'allowEmpty'=>true, 'on'=>'edit'),
+            array('cover_image', 'file', 'types'=>'jpg, gif, png', 'on'=>'add'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
 			array('newsid, title_en, title_th, title_in, content_en, content_th, content_in, cover_image, create_datetime, modified_datetime, fromDate, toDate', 'safe', 'on'=>'search'),
