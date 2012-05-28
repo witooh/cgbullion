@@ -12,10 +12,12 @@ USE `admin_cg` ;
 DROP TABLE IF EXISTS `admin_cg`.`setting` ;
 
 CREATE  TABLE IF NOT EXISTS `admin_cg`.`setting` (
+  `settingid` INT NOT NULL AUTO_INCREMENT ,
   `password` VARCHAR(32) NOT NULL ,
   `email_contactus` TEXT NULL ,
   `email_trading` TEXT NULL ,
-  `email_joinus` TEXT NULL )
+  `email_joinus` TEXT NULL ,
+  PRIMARY KEY (`settingid`) )
 ENGINE = InnoDB;
 
 
@@ -45,7 +47,7 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `admin_cg`.`report` ;
 
 CREATE  TABLE IF NOT EXISTS `admin_cg`.`report` (
-  `newsid` INT NOT NULL AUTO_INCREMENT ,
+  `reportid` INT NOT NULL AUTO_INCREMENT ,
   `title_en` VARCHAR(200) NOT NULL ,
   `title_th` VARCHAR(200) NOT NULL ,
   `title_in` VARCHAR(200) NOT NULL ,
@@ -55,7 +57,7 @@ CREATE  TABLE IF NOT EXISTS `admin_cg`.`report` (
   `cover_image` TEXT NULL ,
   `create_datetime` DATETIME NOT NULL ,
   `modified_datetime` DATETIME NULL ,
-  PRIMARY KEY (`newsid`) )
+  PRIMARY KEY (`reportid`) )
 ENGINE = InnoDB;
 
 
@@ -111,3 +113,12 @@ ENGINE = InnoDB;
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+
+-- -----------------------------------------------------
+-- Data for table `admin_cg`.`setting`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `admin_cg`;
+INSERT INTO `admin_cg`.`setting` (`settingid`, `password`, `email_contactus`, `email_trading`, `email_joinus`) VALUES (1, '6e6a27d7494bed1a73cb8fa240b0192b', NULL, NULL, NULL);
+
+COMMIT;

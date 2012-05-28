@@ -5,7 +5,7 @@
 <?php $form=$this->beginWidget('CActiveForm', array(
     'id'=>'form-submit',
     'enableClientValidation'=>false,
-    'enableAjaxValidation'=>false,
+    'enableAjaxValidation'=>true,
     'htmlOptions'=>array('class'=> 'mainForm','enctype' => 'multipart/form-data'),
     'clientOptions'=>array(
         'validateOnSubmit'=>true,
@@ -35,7 +35,16 @@
                 <div class="rowElem ">
                     <?php echo $form->label($modelNews,'content_en'); ?>
                     <div class="formRight">
-                        <?php echo $form->textArea($modelNews,'content_en',array('class'=>'wysiwyg','rows'=>'5')); ?> 
+                        <?php $this->widget('ext.ckeditor.CKEditorWidget', array(
+						        'model' => $modelNews,
+						        'attribute' => 'content_en',
+						 		'editorOptions' => array(
+						 			'uiColor'=>'#FAFAFA',
+						 			'resize_dir'=>'vertical',
+								 	'toolbar' => 'Image',
+								 ),
+							));
+						?>
                         <?php echo $form->error($modelNews,'content_en'); ?>
                     </div>
                 </div>
@@ -54,7 +63,16 @@
                 <div class="rowElem">
                     <?php echo $form->label($modelNews,'content_th'); ?>
                     <div class="formRight">
-                        <?php echo $form->textArea($modelNews,'content_th',array('class'=>'wysiwyg','rows'=>'5')); ?> 
+                        <?php $this->widget('ext.ckeditor.CKEditorWidget', array(
+						        'model' => $modelNews,
+						        'attribute' => 'content_th',
+						 		'editorOptions' => array(
+						 			'uiColor'=>'#FAFAFA',
+						 			'resize_dir'=>'vertical',
+								 	'toolbar' => 'Image',
+								 ),
+							));
+						?>
                         <?php echo $form->error($modelNews,'content_th'); ?>
                     </div>
                 </div>
@@ -73,7 +91,16 @@
                 <div class="rowElem">
                     <?php echo $form->label($modelNews,'content_in'); ?>
                     <div class="formRight">
-                        <?php echo $form->textArea($modelNews,'content_in',array('class'=>'wysiwyg','rows'=>'5')); ?> 
+                    	<?php $this->widget('ext.ckeditor.CKEditorWidget', array(
+						        'model' => $modelNews,
+						        'attribute' => 'content_in',
+						 		'editorOptions' => array(
+						 			'uiColor'=>'#FAFAFA',
+						 			'resize_dir'=>'vertical',
+								 	'toolbar' => 'Image',
+								 ),
+							));
+						?>
                         <?php echo $form->error($modelNews,'content_in'); ?>
                     </div>
                 </div>
@@ -97,8 +124,8 @@
                 <div class="rowElem">
                     <?php echo $form->label($modelNews,'cover_image'); ?>
                     <div class="formRight">
-                        <?php echo $form->fileField($modelNews, 'cover_image'); ?>
-                        <?php echo $form->error($modelNews,'cover_image'); ?>
+                        <?php echo $form->fileField($modelNews, 'cover_file'); ?>
+                        <?php echo $form->error($modelNews,'cover_file'); ?>
                     </div><div class="fix"></div>
                 </div>
                 <div class="submitForm">

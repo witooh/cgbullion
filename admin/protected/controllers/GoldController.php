@@ -78,9 +78,9 @@ class GoldController extends Controller
             $totalDelete = Gold::model()->deleteByPk($_POST['cid']);
             if($totalDelete){
                 setFlash('success',"{$totalDelete} Gold Index are deleted");
-                $this->redirect(Yii::app()->user->returnUrl);
             }
         }
+        $this->redirect(Yii::app()->user->returnUrl);
     }
     
     protected function performAjaxValidation($model)

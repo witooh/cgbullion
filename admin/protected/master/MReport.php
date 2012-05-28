@@ -4,7 +4,7 @@
  * This is the model class for table "report".
  *
  * The followings are the available columns in table 'report':
- * @property integer $newsid
+ * @property integer $reportid
  * @property string $title_en
  * @property string $title_th
  * @property string $title_in
@@ -20,7 +20,7 @@ class MReport extends CActiveRecord
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @param string $className active record class name.
-	 * @return Report the static model class
+	 * @return MReport the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{
@@ -48,7 +48,7 @@ class MReport extends CActiveRecord
 			array('content_en, content_th, content_in, cover_image, modified_datetime', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('newsid, title_en, title_th, title_in, content_en, content_th, content_in, cover_image, create_datetime, modified_datetime', 'safe', 'on'=>'search'),
+			array('reportid, title_en, title_th, title_in, content_en, content_th, content_in, cover_image, create_datetime, modified_datetime', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -69,7 +69,7 @@ class MReport extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'newsid' => 'Newsid',
+			'reportid' => 'Reportid',
 			'title_en' => 'Title En',
 			'title_th' => 'Title Th',
 			'title_in' => 'Title In',
@@ -93,7 +93,7 @@ class MReport extends CActiveRecord
 
 		$criteria=new CDbCriteria;
 
-		$criteria->compare('newsid',$this->newsid);
+		$criteria->compare('reportid',$this->reportid);
 		$criteria->compare('title_en',$this->title_en,true);
 		$criteria->compare('title_th',$this->title_th,true);
 		$criteria->compare('title_in',$this->title_in,true);

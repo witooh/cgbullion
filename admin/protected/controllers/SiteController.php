@@ -18,7 +18,7 @@ class SiteController extends Controller
                 'users' => array('*'),
             ),
             array('allow',
-                'actions' => array('index','form','interface','typo'),
+                'actions' => array('index','form','interface','typo','file'),
                 'users' =>array('@'),
             ),
             array('deny',
@@ -29,7 +29,7 @@ class SiteController extends Controller
 
     public function actionIndex()
     {
-        setFlash('success','SUCCESS: Success message! hoooraaay!!!!');
+        //setFlash('success','SUCCESS: Success message! hoooraaay!!!!');
         $this->render('index',array());
     }
     

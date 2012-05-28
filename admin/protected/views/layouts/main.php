@@ -15,11 +15,6 @@
     
     addJs(baseurl('js/jquery-ui.min.js'));
     
-    addJs(baseurl('js/plugins/wysiwyg/jquery.wysiwyg.js'));
-    addJs(baseurl('js/plugins/wysiwyg/wysiwyg.image.js'));
-    addJs(baseurl('js/plugins/wysiwyg/wysiwyg.link.js'));
-    addJs(baseurl('js/plugins/wysiwyg/wysiwyg.table.js'));
-    
     addJs(baseurl('js/plugins/flot/jquery.flot.js'));
     addJs(baseurl('js/plugins/flot/jquery.flot.orderBars.js'));
     addJs(baseurl('js/plugins/flot/jquery.flot.pie.js'));
@@ -78,11 +73,9 @@
             <div class="welcome"><a href="#" title=""><img src="<?php echo baseurl('images/userPic.png') ?>" alt="" /></a><span><?php echo userName(); ?></span></div>
             <div class="userNav">
                 <ul>
-                    <li><a href="#" title=""><img src="<?php echo baseurl('images/icons/topnav/profile.png') ?>" alt="" /><span>Profile</span></a></li>
-                    <li><a href="#" title=""><img src="<?php echo baseurl('images/icons/topnav/tasks.png') ?>" alt="" /><span>Tasks</span></a></li>
                     <li class="dd"><a title=""><img src="<?php echo baseurl('images/icons/topnav/settings.png') ?>" alt="" /><span>Settings</span></a>
                         <ul class="menu_body">
-                            <li><a href="#" title="" class="sTasks">Change Password</a></li>
+                            <li><a href="<?php echo url('setting/changepwd') ?>" title="" class="sTasks">Change Password</a></li>
                             <li><a href="#" title="" class="sTasks">Emails</a></li>
                         </ul>
                     </li>
@@ -140,6 +133,11 @@
                             array('label'=>'Exchange rate to USD', 'url'=>array('currency/exchange')),
                             array('label'=>'Inverse rate to USD', 'url'=>array('currency/inverse')),
                         ),
+                    ),
+                    array(
+                        'label'=>'File Manager',
+                        'url'=>array('site/file'),
+                        'itemOptions'=>array('class'=>'files'),
                     ),
                 ),
             ));

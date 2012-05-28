@@ -12,9 +12,10 @@ class UserIdentity extends CUserIdentity
 
 	public function authenticate()
 	{
+		$modelSetting = Setting::model()->findByPk(1,array('select'=>'password'));
 		if($this->username != 'admin')
             $this->errorCode=self::ERROR_USERNAME_INVALID;
-        else if($this->password != '1234')
+        else if($this->password != $modelSetting->password)
             $this->errorCode=self::ERROR_PASSWORD_INVALID;
         else{
             $this->errorCode=self::ERROR_NONE;

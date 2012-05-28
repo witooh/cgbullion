@@ -6,7 +6,7 @@
     <div class="middleNav" style="float: none;">
         <ul>
             <li class="iAdd"><a href="<?php echo url('news/add') ?>"><span>Add News</span></a></li>
-            <li class="iClose"><a href="#" class="submitform" data-form="form-delete"><span>Delete News</span></a></li>
+            <li class="iClose"><a href="#" class="submitform" data-form="form-delete" data-confirm="1" data-title="Confirm Delete" data-body="Please confirm to delete" ><span>Delete News</span></a></li>
         </ul>
     </div>
 </div>
@@ -27,43 +27,18 @@
         <div class="widget aligncenter">    
             <div class="head"><h5 class="iList">Search</h5></div>
             <div class="body" style="text-align: left;">
-                <div class="rowElem noborder">
-                    <label>Created Date:</label>
+            	<div class="rowElem noborder">
+                    <?php echo $form->label($modelNews,'title_en'); ?>
                     <div class="formRight">
-                        <?php
-                            $this->widget('zii.widgets.jui.CJuiDatePicker', array(
-                                'name'=>'fromDate',
-                                'model'=>$modelNews,
-                                'attribute'=>'fromDate',
-                                'htmlOptions'=>array(
-                                    'style'=>'width:200px;',
-                                ),
-                                'options'=>array(
-                                    'dateFormat'=>'yy-mm-dd',
-                                ),
-                            ));
-                        ?>
-                        <span> To </span>
-                        <?php
-                            $this->widget('zii.widgets.jui.CJuiDatePicker', array(
-                                'name'=>'toDate',
-                                'model'=>$modelNews,
-                                'attribute'=>'toDate',
-                                'htmlOptions'=>array(
-                                    'style'=>'width:200px;',
-                                ),
-                                'options'=>array(
-                                    'dateFormat'=>'yy-mm-dd',
-                                ),
-                            ));
-                        ?>
-                        <div class="fix"></div>
+                        <?php echo $form->textField($modelNews,'title_en'); ?>
+                        <?php echo $form->error($modelNews,'title_en'); ?>
+                        <?php echo $form->error($modelNews,'title_th'); ?>
+                        <?php echo $form->error($modelNews,'title_in'); ?>
                     </div>
-                    <div class="fix"></div>
                 </div>
                 <div class="submitForm">
                     <input type="submit" value="Search" class="redBtn" />
-                    <input type="reset" value="Clear" class="redBtn" />
+                    <input type="button" value="Clear" class="redBtn link" data-url="<?php echo url('news/index') ?>" />
                 </div>
                 <div class="fix"></div>
 
@@ -77,7 +52,7 @@
     'htmlOptions'=>array('class'=> 'mainForm'),
 )); ?>
 <div class="widget first">
-    <div class="head"><h5 class="iFrames">Gold Prices</h5></div>
+    <div class="head"><h5 class="iFrames">News</h5></div>
     <div class="">
         <?php
             $this->widget('zii.widgets.grid.CGridView', array(

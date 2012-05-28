@@ -8,6 +8,11 @@ defined('DS') or define('DS',DIRECTORY_SEPARATOR);
 /**
  * This is the shortcut to Yii::app()
  */
+ 
+function hashPassword($pwd){
+	return md5(param('salt').$pwd.param('salt'));
+}
+
 function app()
 {
     return Yii::app();

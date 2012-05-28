@@ -17,8 +17,7 @@
  */
 class News extends MNews
 {
-    public $fromDate;
-    public $toDate;
+    public $cover_file;
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @param string $className active record class name.
@@ -39,13 +38,12 @@ class News extends MNews
 		return array(
 			array('title_en, title_th, title_in, create_datetime', 'required'),
 			array('title_en, title_th, title_in', 'length', 'max'=>200),
-			array('content_en, content_th, content_in, cover_image, modified_datetime', 'safe'),
+			array('content_en, content_th, content_in, cover_image, modified_datetime, cover_file', 'safe'),
             
-            array('cover_image', 'file', 'types'=>'jpg, gif, png', 'allowEmpty'=>true, 'on'=>'edit'),
-            array('cover_image', 'file', 'types'=>'jpg, gif, png', 'on'=>'add'),
+            array('cover_file', 'file', 'types'=>'jpg, gif, png', 'allowEmpty'=>true),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('newsid, title_en, title_th, title_in, content_en, content_th, content_in, cover_image, create_datetime, modified_datetime, fromDate, toDate', 'safe', 'on'=>'search'),
+			array('newsid, title_en, title_th, title_in, content_en, content_th, content_in, cover_image, create_datetime, modified_datetime', 'safe', 'on'=>'search'),
 		);
 	}
     
@@ -73,8 +71,9 @@ class News extends MNews
 	{
 		// Warning: Please modify the following code to remove attributes that
 		// should not be searched.
-
 		$criteria=new CDbCriteria;
+		$sort = new CSort;
+        $sort->defaultOrder='newsid DESC';
 
 		$criteria->compare('newsid',$this->newsid);
 		$criteria->compare('title_en',$this->title_en,true);
@@ -84,14 +83,11 @@ class News extends MNews
 		$criteria->compare('content_th',$this->content_th,true);
 		$criteria->compare('content_in',$this->content_in,true);
 		$criteria->compare('cover_image',$this->cover_image,true);
-		//$criteria->compare('create_datetime',$this->create_datetime,true);
-        if(!empty($this->fromDate) && !empty($this->toDate))
-            $criteria->addBetweenCondition('create_datetime',$this->fromDate,$this->toDate);
-        else
-            $criteria->compare('create_datetime',$this->fromDate,true);
+		$criteria->compare('create_datetime',$this->create_datetime,true);
 		$criteria->compare('modified_datetime',$this->modified_datetime,true);
 
 		return new CActiveDataProvider($this, array(
+			'sort'=>$sort,
 			'criteria'=>$criteria,
 		));
 	}

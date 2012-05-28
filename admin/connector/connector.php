@@ -28,8 +28,8 @@ class elFinderLogger implements elFinderILogger {
 }
 
 $opts = array(
-	'root'            => '../',                       // path to root directory
-	'URL'             => '/', // root directory URL
+	'root'            => '../../files',                       // path to root directory
+	'URL'             => 'http://cgbullion.local/admin/', // root directory URL
 	'rootAlias'       => 'Home',       // display this instead of root directory name
 	//'uploadAllow'   => array('images/*'),
 	//'uploadDeny'    => array('all'),

@@ -1,7 +1,7 @@
 <?php
     addJs(baseurl('js/charts/chart.js'));
+    $this->title = 'Dashboard';
 ?>
-<div class="title"><h5>Dashboard</h5></div>
 
 <!-- Statistics -->
 <div class="stats">
