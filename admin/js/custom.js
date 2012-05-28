@@ -471,7 +471,7 @@ $(function() {
 
 $('#fileManager').elfinder({
 
-            url : 'http://cgbullion.local/connector/connector.php',
+            url : '/connector/connector.php',
 
             toolbar : [
 
