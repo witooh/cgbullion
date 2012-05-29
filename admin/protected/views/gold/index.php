@@ -6,7 +6,7 @@
     <div class="middleNav" style="float: none;">
         <ul>
             <li class="iAdd"><a href="<?php echo url('gold/addprice') ?>"><span>Add Price</span></a></li>
-            <li class="iClose"><a href="#" class="submitform" data-form="form-delete"><span>Delete Price(s)</span></a></li>
+            <li class="iClose"><a href="#" class="submitform" data-form="form-delete" data-confirm="1" data-title="Confirm Delete" data-body="Please confirm to delete" ><span>Delete Price</span></a></li>
         </ul>
     </div>
 </div>
@@ -122,5 +122,8 @@
             ));
         ?>
     </div>
+</div>
+<div style="margin-top: 10px;">
+	<input type="button" value="Delete Price" class="basicBtn submitform" data-form="form-delete" data-confirm="1" data-title="Confirm Delete" data-body="Please confirm to delete" />
 </div>
 <?php $this->endWidget(); ?>

@@ -76,7 +76,7 @@
                     <li class="dd"><a title=""><img src="<?php echo baseurl('images/icons/topnav/settings.png') ?>" alt="" /><span>Settings</span></a>
                         <ul class="menu_body">
                             <li><a href="<?php echo url('setting/changepwd') ?>" title="" class="sTasks">Change Password</a></li>
-                            <li><a href="#" title="" class="sTasks">Emails</a></li>
+                            <!-- <li><a href="<?php echo url('setting/email') ?>" title="" class="sTasks">Email</a></li> -->
                         </ul>
                     </li>
                     <li><a href="<?php echo url('login/logout') ?>" title=""><img src="<?php echo baseurl('images/icons/topnav/logout.png') ?>" alt="" /><span>Logout</span></a></li>
@@ -106,20 +106,13 @@
         <?php
             $this->widget('ext.template.Sidebarmenu',array(
                 'items'=>array(
-                    array(
-                        'label'=>'Dashboard',
-                        'url'=>array('site/index'),
-                        'itemOptions'=>array('class'=>'dash'),
-                    ),
-                    array(
-                        'label'=>'News',
-                        'url'=>array('news/index'),
-                        'itemOptions'=>array('class'=>'typo'),
-                    ),
-                    array(
-                        'label'=>'Report',
-                        'url'=>array('report/index'),
-                        'itemOptions'=>array('class'=>'typo'),
+                	array(
+                        'label'=>'Articles',
+                        'itemOptions'=>array('class'=>'widgets'),
+                        'items'=>array(
+                        	array('label'=>'News', 'url'=>array('news/index')),
+                            array('label'=>'Latest Report', 'url'=>array('report/index')),
+                        ),
                     ),
                     array(
                         'label'=>'Gold Index',
@@ -135,9 +128,12 @@
                         ),
                     ),
                     array(
-                        'label'=>'File Manager',
-                        'url'=>array('site/file'),
-                        'itemOptions'=>array('class'=>'files'),
+                        'label'=>'Global Management',
+                        'itemOptions'=>array('class'=>'widgets'),
+                        'items'=>array(
+                        	array('label'=>'File Manager', 'url'=>array('site/file')),
+                            array('label'=>'System Email Setting', 'url'=>array('setting/email')),
+                        ),
                     ),
                 ),
             ));

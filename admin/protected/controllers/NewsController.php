@@ -89,7 +89,7 @@ class NewsController extends Controller
 				}else{
 					setFlash('success','News is added');
 				}
-                $this->redirect(url('news/index'));
+                //$this->redirect(url('news/index'));
             }
         }
         if(empty($modelNews->create_datetime))

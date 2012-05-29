@@ -1384,7 +1384,7 @@ contextmenu : {
 
     });
 
-    $(document).on('click','a.submitform',function(){
+    $(document).on('click','.submitform',function(){
         var selector = $(this).attr('data-form');
         var showConfirm = $(this).attr('data-confirm');
         if(typeof(showConfirm) != undefined){

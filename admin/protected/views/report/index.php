@@ -101,4 +101,7 @@
         ?>
     </div>
 </div>
+<div style="margin-top: 10px;">
+	<input type="button" value="Delete Report" class="basicBtn submitform" data-form="form-delete" data-confirm="1" data-title="Confirm Delete" data-body="Please confirm to delete" />
+</div>
 <?php $this->endWidget(); ?>

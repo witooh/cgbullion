@@ -27,7 +27,7 @@ CvsHost=
 CvsRoot=
 CvsModule=
 CvsUser=
-CvsPassw=81EbeMDBtd85zXALaBkMdzulSiPvcXcPIH0eO0fJmacXVcNTziHBP1Ath2tZeS3XQAV/g+LRf29f3TmbUCmKBw==
+CvsPassw=xvNre99cvgJuOGt+J1TXOkywATZQTDxyVyil7shEIqoAoEimUTxK4gcYHF6WNHYa95C0Fh0stFLoCELOXyTxig==
 CvsUseUtf8=0
 CvsCVSROOT=:pserver:@
 IncPath0=C:\Zend\Apache2\htdocs\framework
@@ -57,7 +57,7 @@ sesstimeout=15
 cp=System default encoding
 stopbeginning=1
 breakerr=1
-errset=
+errset=E_ERROR,E_WARNING,E_PARSE,E_CORE_ERROR,E_CORE_WARNING,E_COMPILE_ERROR,E_COMPILE_WARNING,E_USER_ERROR,E_USER_WARNING,E_STRICT,E_RECOVERABLE_ERROR
 breakexc=1
 excset=Exception
 excign=

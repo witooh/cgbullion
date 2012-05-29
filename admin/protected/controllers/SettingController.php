@@ -18,7 +18,7 @@ class SettingController extends Controller
                 'users' => array('*'),
             ),
             array('allow',
-                'actions' => array('changepwd'),
+                'actions' => array('changepwd','email'),
                 'users' =>array('@'),
             ),
             array('deny',
@@ -45,6 +45,7 @@ class SettingController extends Controller
 				$modelSetting->password = $modelSetting->newPassword;
 				$modelSetting->save(false);
 				setFlash('success','Your Password is changed');
+				$this->redirect(url('setting/changepwd'));
 			}
 		}
 		$modelSetting->oldPassword = '';
@@ -54,4 +55,18 @@ class SettingController extends Controller
 			'modelSetting'=>$modelSetting,
 		));
 	}
+    
+    public function actionEmail(){
+        $modelSetting = Setting::model()->findByPk(1);
+        if(isset($_POST['Setting'])){
+            $modelSetting->attributes = $_POST['Setting'];
+            if($modelSetting->save()){
+                setFlash('success','Your Email is save');
+                $this->redirect(url('setting/email'));
+            }
+        }
+        $this->render('email',array(
+            'modelSetting'=>$modelSetting,
+        ));
+    }
 }
