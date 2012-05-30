@@ -1,5 +1,6 @@
 <?php
     $this->title = 'News: Add';
+    $this->renderPartial
 ?>
 
 <?php $form=$this->beginWidget('CActiveForm', array(
